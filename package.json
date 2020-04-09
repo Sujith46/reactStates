@@ -1,0 +1,27 @@
+{
+  "name": "reactstates",
+  "version": "1.0.0",
+  "description": "the project is aimed to learn all the react states()\u001b[",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --node development",
+    "build": "webpack --node production",
+    "start": "webpack-dev-server --node development --open"
+  },
+  "author": "sujith",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.1.0",
+    "babel-preset-env": "^1.7.0",
+    "html-webpack-plugin": "^4.0.4",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "babel-polyfill": "^6.26.0"
+  }
+}
