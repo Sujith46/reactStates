@@ -13,7 +13,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            filename: 'index.html',
+            filename: './index.html',
             template: './src/index.html'
 
         })
@@ -26,7 +26,15 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                 }
-            }
+            },
+            {
+                test: /\.html$/,
+                use: [
+                  {
+                    loader: "html-loader"
+                  }
+                ]
+              }
         ]
     }
 };
