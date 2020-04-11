@@ -28,10 +28,19 @@ const App = (props) => {
     setNotes(notes.filter((note) => note.title !== title))
   }
 
+//This useEffect will be called once since empty list [] has passed as 2nd arg. 
+//empty list means it does not depend on anything
+
+  useEffect(() => {
+    console.log('This useEffect only run once')
+  }, [])
+
+  //useEffect run only when count changes since count list has been passed as 2nd arg
+
   useEffect(() => {
     document.title = count
     console.log('title value changed', count)
-  })
+  }, [count])
 
   useEffect(() => {
     console.log('notes added', localStorage.getItem('notes', JSON.stringify(notes)))
