@@ -1,10 +1,16 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 
 const App = (props) => {
 
-  const [notes, setNotes] = useState([])
+  const notesData = JSON.parse(localStorage.getItem('notes'));
+  const [notes, setNotes] = useState(notesData || [])
   const [title, setTitle] = useState('')
+  const [count, setCount] = useState(0)
+
+  //Use effect, which resembles componentDidUpdate and componentDidMount from class
+
+
 
   const addNote = (e) => {
     e.preventDefault()
@@ -22,6 +28,17 @@ const App = (props) => {
     setNotes(notes.filter((note) => note.title !== title))
   }
 
+  useEffect(() => {
+    document.title = count
+    console.log('title value changed', count)
+  })
+
+  useEffect(() => {
+    console.log('notes added', localStorage.getItem('notes', JSON.stringify(notes)))
+    localStorage.getItem('notes', JSON.stringify(notes))
+  })
+
+
   return (
     <div>
       <h1>Notes</h1>
@@ -35,6 +52,8 @@ const App = (props) => {
      <form onSubmit={addNote}>
        <input value={title} onChange={(e) => setTitle(e.target.value)}></input>
        <button>add note</button>
+       <h2>Change title value</h2>
+       <button className="value-change" onClick={() => setCount(count + 1)}>+1</button>
      </form>
     </div>
   )
